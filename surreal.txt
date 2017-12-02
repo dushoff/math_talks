@@ -1,0 +1,214 @@
+PRESENT \vfill\begin{center} 
+
+Game values and (sur)real numbers
+
+PRESENT \vfill
+
+Jonathan Dushoff, McMaster University
+
+\url{http://lalashan.mcmaster.ca/DushoffLab}
+
+PRESENT \vfill
+
+PRESENT McMaster Undergraduate lecture
+
+PRESENT \vfill
+
+PRESENT December 2017
+
+PRESENT \vfill\end{center}
+
+----------------------------------------------------------------
+
+GOALS
+
+	Describe:
+
+		Combinatoric games
+
+		Surreal numbers
+
+		Where the real numbers fit in
+
+	Stay on this side of sanity
+
+
+----------------------------------------------------------------------
+
+Game theory
+
+ADD POKER
+
+	Classic game theory is the theory of games with \emph{imperfect information}
+
+	Why would that be?
+
+----------------------------------------------------------------------
+
+Determinism
+
+	Games with perfect information are \emph{boring}
+
+		Mathematically, not practically
+
+	Analyze the game tree; figure out who wins
+
+ADD Game tree
+
+----------------------------------------------------------------------
+
+Combinatorial game theory
+
+	Except that deterministic games are not boring at all
+
+	Conway decided to think about what it might mean to add two deterministic
+	games together
+
+	The result was the best thing
+
+----------------------------------------------------------------------
+
+Resources
+
+----------------------------------------------------------------------
+
+What is a game?
+
+	Game state
+
+----------------------------------------------------------------------
+
+	I have just defined a bewilderingly wonderful agglomeration of objects
+
+		We will need to ``chop'' it three times to get to the real numbers
+
+----------------------------------------------------------------------
+
+What are some games?
+
+----------------------------------------------------------------------
+
+How to play a game?
+
+----------------------------------------------------------------------
+
+Hackenbush, an example game
+
+----------------------------------------------------------------------
+
+What outcomes can a game have?
+
+----------------------------------------------------------------------
+
+Adding games
+
+----------------------------------------------------------------------
+
+Second-player win
+
+	Adding a game with outcome $S$ never changes the outcome of the game
+
+----------------------------------------------------------------------
+
+Other outcomes
+
+	Other outcomes can't possibly have this property
+
+		Why not?
+
+----------------------------------------------------------------------
+
+CHOP
+
+----------------------------------------------------------------------
+
+Game values
+
+	We consider two games the same if:
+
+----------------------------------------------------------------------
+
+Negatives
+
+	We define the negative of a game
+
+	A=B iff A-B = 0
+
+----------------------------------------------------------------------
+
+Partial Ordering
+
+----------------------------------------------------------------------
+
+First player win
+
+	Is outcome $F$ particularly interesting?
+
+		Yes
+
+----------------------------------------------------------------------
+
+CHOP
+
+----------------------------------------------------------------------
+
+Numbers
+
+	The values I've defined are a very cool group.
+
+	But you can't make them a ring
+
+	Games have ``numerical'' value if you can count free moves, which works when moving is always bad.
+
+----------------------------------------------------------------------
+
+RSLIDE Game definition
+
+----------------------------------------------------------------------
+
+Number definition
+
+	Numbers are values of numerical games
+
+----------------------------------------------------------------------
+
+Examples
+
+	1 + 1 = 2
+
+	(0|1)
+
+	(0|2)
+
+	(0|3)
+
+----------------------------------------------------------------------
+
+Mirror world
+
+----------------------------------------------------------------------
+
+Binary expansions
+
+----------------------------------------------------------------------
+
+The limit
+
+----------------------------------------------------------------------
+
+DEFHEAD 0.999\ldots
+
+
+
+Examples
+
+	
+
+
+
+
+
+CONCLUSIONS
+
+	We're out of time
+
