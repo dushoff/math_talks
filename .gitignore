@@ -25,4 +25,15 @@ local.mk
 dotdir/
 clonedir/
 
-*.makestuff
+.deps/
+*.deps
+
+*.draft.*
+
+allsteps.mk
+*.step.mk
+talkdir
+
+txt.format
+webpix
+
