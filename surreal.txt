@@ -37,15 +37,23 @@ GOALS
 
 Game theory
 
-ADD POKER
+BC
 
 	Classic game theory is the theory of games with \emph{imperfect information}
 
 	Why would that be?
 
+NC
+
+CFIG webpix/poker.jpg
+
+EC
+
 ----------------------------------------------------------------------
 
 Determinism
+
+BC
 
 	Games with perfect information are \emph{boring}
 
@@ -53,11 +61,17 @@ Determinism
 
 	Analyze the game tree; figure out who wins
 
-ADD Game tree
+NC
+
+CFIG webpix/tictac.png
+
+EC
 
 ----------------------------------------------------------------------
 
 Combinatorial game theory
+
+BC
 
 	Except that deterministic games are not boring at all
 
@@ -65,6 +79,12 @@ Combinatorial game theory
 	games together
 
 	The result was the best thing
+
+NC
+
+CFIG webpix/go.png
+
+EC
 
 ----------------------------------------------------------------------
 

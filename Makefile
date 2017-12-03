@@ -11,7 +11,7 @@ Sources = Makefile .gitignore README.md sub.mk LICENSE.md
 include sub.mk
 # include $(ms)/perl.def
 
-Drop = ~/Dropbox
+Drop = ~/Dropbox/math_talks
 -include $(ms)/newtalk.def
 
 ##################################################################
@@ -25,13 +25,18 @@ Sources += copy.tex
 
 Sources += $(wildcard *.txt)
 
-## Moved here direct from Dropbox (NTU 2016).
-## To do: figure out what you want from which column
-## Using OTHER to mark things that are currently suppressed
+## Created this directory to make the first slide version of surreal lecture
+## 2017
 
 surreal.draft.pdf: surreal.txt
 surreal.final.pdf: surreal.txt
 surreal.handouts.pdf: surreal.txt
+surreal.html: surreal.step
+
+######################################################################
+
+dfiles: $(dirs:%=%/Makefile)
+Sources += $(dirs)
 
 ######################################################################
 
@@ -40,6 +45,7 @@ surreal.handouts.pdf: surreal.txt
 
 -include $(ms)/newtalk.mk
 -include $(ms)/newlatex.mk
+-include $(ms)/webpix.mk
 -include $(ms)/pandoc.mk
 
 # -include $(ms)/wrapR.mk
