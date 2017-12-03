@@ -28,8 +28,9 @@ Sources += $(wildcard *.txt)
 ## Moved here direct from Dropbox (NTU 2016).
 ## To do: figure out what you want from which column
 ## Using OTHER to mark things that are currently suppressed
-surreal.final.pdf: surreal.txt
+
 surreal.draft.pdf: surreal.txt
+surreal.final.pdf: surreal.txt
 surreal.handouts.pdf: surreal.txt
 
 ######################################################################
