@@ -29,7 +29,7 @@ Sources += $(wildcard *.txt)
 ## 2017
 
 surreal.draft.pdf: surreal.txt
-urreal.final.pdf: surreal.txt
+surreal.final.pdf: surreal.txt
 surreal.handouts.pdf: surreal.txt
 surreal.html: surreal.step
 
