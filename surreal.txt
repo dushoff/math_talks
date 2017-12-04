@@ -51,7 +51,7 @@ BC
 
 NC
 
-CFIG webpix/poker.jpg
+SIDEFIG webpix/poker.jpg
 
 EC
 
@@ -69,7 +69,7 @@ BC
 
 NC
 
-CFIG webpix/tictac.png
+SIDEFIG webpix/tictac.png
 
 EC
 
@@ -88,7 +88,7 @@ BC
 
 NC
 
-CFIG webpix/go.png
+SIDEFIG webpix/go.png
 
 EC
 
@@ -260,7 +260,7 @@ Definition
 
 	This has a nice, recursive definition
 
-		$A = (A^L | A^R)
+		$A = (A^L | A^R)$
 
 		$-A \equiv (-A^R | -A^L)$
 
@@ -288,7 +288,7 @@ BCC
 
 NCC
 
-CFIG webpix/mirror.jpg
+SIDEFIG webpix/mirror.jpg
 
 EC
 
