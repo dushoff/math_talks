@@ -29,6 +29,8 @@ clonedir/
 *.deps
 
 *.draft.*
+*.final.*
+*.handouts.*
 
 allsteps.mk
 *.step.mk
