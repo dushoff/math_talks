@@ -1,3 +1,10 @@
+
+NOFRAME
+
+\newcommand{\outc}{\ensuremath{\mathcal{O}}}
+
+----------------------------------------------------------------------
+
 PRESENT \vfill\begin{center} 
 
 Game values and (sur)real numbers
@@ -10,7 +17,7 @@ Jonathan Dushoff, McMaster University
 
 PRESENT \vfill
 
-PRESENT McMaster Undergraduate lecture
+PRESENT McMaster Math 3A
 
 PRESENT \vfill
 
@@ -31,7 +38,6 @@ GOALS
 		Where the real numbers fit in
 
 	Stay on this side of sanity
-
 
 ----------------------------------------------------------------------
 
@@ -90,11 +96,27 @@ EC
 
 Resources
 
+	* \emph{On Numbers and Games}, Conway
+
+	* \emph{Surreal Numbers}, Knuth
+
+	* \emph{Winning Ways}, Berlekamp, Conway, Guy
+
 ----------------------------------------------------------------------
 
 What is a game?
 
-	Game state
+	What I tell you!
+
+		$x = (x^L | x^R)$
+
+		A set of options for the left player, and a set of options for the right
+		player
+
+		Options are \emph{previously defined} games
+
+	A game \emph{state} is a game together with a specification of whose turn it
+	is
 
 ----------------------------------------------------------------------
 
@@ -102,31 +124,108 @@ What is a game?
 
 		We will need to ``chop'' it three times to get to the real numbers
 
+	But is it clear that I've defined any objects at all?
+
 ----------------------------------------------------------------------
 
 What are some games?
+
+	A set of options for the left player, and a set of options for the right
+	player
+
+	$(\emptyset | \emptyset)$ = $(|)$
+
+		0
+
+	$(0 | )$
+
+		1
+
+	$( | 0)$
+
+		-1
+
+	$(0 | 0)$
+
+		*
 
 ----------------------------------------------------------------------
 
 How to play a game?
 
+	If it's your turn, you choose an option
+
+	It's then the other player's turn in that game
+
+	If you have no options than you lose
+
 ----------------------------------------------------------------------
 
-Hackenbush, an example game
+Hackenbush
+
+	Uses a drawing with blue, red and green lines, and a "ground"
+
+	On your turn, you remove a line
+
+		Lines no longer connected to ground are removed
+
+	bLue lines can be removed by Left
+
+	Red lines can be removed by Right
+
+	greeN lines can be removed by aNyone
 
 ----------------------------------------------------------------------
 
 What outcomes can a game have?
 
+	$\outc(0) = S$ -- second player wins
+
+	$\outc(*) = F$ -- first player wins
+
+	$\outc(1) = L$ -- left player wins
+
+	$\outc(-1) = R$ -- right player wins
+
 ----------------------------------------------------------------------
 
 Adding games
+
+	To play in the game $A+B$, you move \emph{either} in $A$ or in $B$
+
+		$A + B = (A+B^L, A^L+B | A+B^R, A^R+B)$
+
+	This is perfectly well defined, and beautifully inductive
+
+		All games are defined in terms of previously defined games
+
+----------------------------------------------------------------------
+
+PICSLIDE FIG webpix/axe.jpg
+
+----------------------------------------------------------------------
+
+Game values
+
+	$A$ and $B$ have the same \textbf{value}, iff:
+
+		$\forall X, \outc(A+X) = \outc(B+X)$
+
+	A game value is thus an \emph{equivalence class} of games
+
+		A set of games that are linked by an equivalence relation
+
+		The rational numbers were defined last week in a similar way:
+
+			1/2 is the equivalence class of ordered pairs (1, 2); (2, 4); \ldots
 
 ----------------------------------------------------------------------
 
 Second-player win
 
 	Adding a game with outcome $S$ never changes the outcome of the game
+
+	We can see this by playing
 
 ----------------------------------------------------------------------
 
@@ -136,15 +235,9 @@ Other outcomes
 
 		Why not?
 
-----------------------------------------------------------------------
+	What happens if we add two first-player win games?
 
-CHOP
-
-----------------------------------------------------------------------
-
-Game values
-
-	We consider two games the same if:
+	What about $L+L$, $L+R$?
 
 ----------------------------------------------------------------------
 
@@ -218,15 +311,11 @@ The limit
 
 DEFHEAD 0.999\ldots
 
-
+----------------------------------------------------------------------
 
 Examples
 
-	
-
-
-
-
+----------------------------------------------------------------------
 
 CONCLUSIONS
 
