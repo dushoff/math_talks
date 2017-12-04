@@ -96,11 +96,11 @@ EC
 
 Resources
 
-	* \emph{On Numbers and Games}, Conway
+	\emph{On Numbers and Games}, Conway
 
-	* \emph{Surreal Numbers}, Knuth
+	\emph{Surreal Numbers}, Knuth
 
-	* \emph{Winning Ways}, Berlekamp, Conway, Guy
+	\emph{Winning Ways}, Berlekamp, Conway, Guy
 
 ----------------------------------------------------------------------
 
@@ -124,7 +124,7 @@ Axiom 1: what is a game?
 	A game is: a set of options for the Left player, and a set of options for the
 	Right player
 
-		$x = (x^L | x^R)$
+		$x = (x^L~|~x^R)$
 
 		Options are \emph{previously defined} games
 
@@ -154,19 +154,19 @@ What are some games?
 	A set of options for the Left player, and a set of options for the Right
 	player
 
-	$(\emptyset | \emptyset)$ = $(|)$
+	$(\emptyset~|~\emptyset)$ = $(|)$
 
 		0
 
-	$(0 | )$
+	$(0~|~)$
 
 		1
 
-	$( | 0)$
+	$(~|~0)$
 
 		-1
 
-	$(0 | 0)$
+	$(0~|~0)$
 
 		*
 
@@ -214,7 +214,7 @@ Axiom 2: Adding games
 
 	To play in the game $A+B$, you move \emph{either} in $A$ or in $B$
 
-		$A + B = (A+B^L, A^L+B | A+B^R, A^R+B)$
+		$A + B = (A+B^L, A^L+B~|~A+B^R, A^R+B)$
 
 	This is perfectly well defined, and beautifully inductive
 
@@ -248,9 +248,9 @@ Some games are better
 
 	Motivation:
 	
-		* classify games by their potential additive effects
+		classify games by their potential additive effects
 
-		* put a partial ordering on the games
+		put a (partial) ordering on the games
 
 ----------------------------------------------------------------------
 
@@ -260,9 +260,9 @@ Definition
 
 	This has a nice, recursive definition
 
-		$A = (A^L | A^R)$
+		$A = (A^L~|~A^R)$
 
-		$-A \equiv (-A^R | -A^L)$
+		$-A \equiv (-A^R~|~-A^L)$
 
 	We then evaluate $A:B$ by looking at the outcome of $A - B \equiv A + (-B)$
 
@@ -328,11 +328,13 @@ Theorem
 
 		$\forall X, \outc(X+A) = \outc(X+B)$
 
-		$\outc(X+A)
-			= \outc((X+A) + (B-A)) 
-			= \outc((X+B) + (A-A)) 
-			= \outc(X+B) 
-		$
+		$\outc(X+A)$
+
+			$ = \outc((X+A) + (B-A)) $
+			
+			$ = \outc((X+B) + (A-A)) $
+			
+			$ = \outc(X+B) $
 
 ----------------------------------------------------------------------
 
@@ -374,14 +376,14 @@ Axiom 1N: what is a (surreal) number?
 	Recall: a game is: a set of options for the Left player, and a set of
 	options for the Right player
 
-		$x = (x^L | x^R)$
+		$x = (x^L~|~x^R)$
 
 		Options are \emph{previously defined} games
 
 	A number is: a set of options for the Left player, and a set of options for
 	the Right player
 
-		$x = (x^L | x^R)$, s.t. no $x^L \geq x^R$
+		$x = (x^L~|~x^R)$, s.t. no $x^L \geq x^R$
 
 		Options are \emph{previously defined} numbers
 
@@ -391,17 +393,17 @@ Examples
 
 	1 + 1 = 2
 
-	(0|1)
+	$(0|1)$
 
-	(0|2)
+	$(0|2)$
 
-	(0|3)
+	$(0|3)$
 
 ----------------------------------------------------------------------
 
 Simplicity theorem
 
-	The value of $(x^L | x^R)$ is the simplest, non-prohibited value
+	The value of $(x^L~|~x^R)$ is the simplest, non-prohibited value
 
 	Prohibited: if if is larger than some $x^R$ or less than some $x^L$
 
@@ -417,9 +419,14 @@ Integers
 
 Binary fractions
 
-	We create the dyadic rationals as
+	We create the (fractional) dyadic rationals as
 
-		$2k+1/2^{n+1} = (k/2^n | (k+1)/2^n)$
+		$(2k+1)/2^{n+1} = (k/2^n~|~(k+1)/2^n)$
+
+		e.g., $7/16 = (3/8~|~1/2)$
+
+	This is also how we \emph{define} the dyadic rationals: integers divided by
+	powers of two.
 
 ----------------------------------------------------------------------
 
@@ -430,11 +437,13 @@ The limit
 
 	We can get all the reals \ldots
 
+		e.g., $1/3 = (0, 1/4, 5/16, \dots~|~1, 1/2, 3/8, \dots)$
+
 	plus some very weird stuff
 
-		$\omega = (0, 1, 2,  \dots | )
+		$\omega = (0, 1, 2,  \dots~|~)$
 
-		$1/\omega = (0|1, 1/2, 1/4, \dots  )
+		$1/\omega = (0|1, 1/2, 1/4, \dots  )$
 
 ----------------------------------------------------------------------
 
@@ -455,6 +464,20 @@ Ordinals
 
 ----------------------------------------------------------------------
 
+Finitude
+
+	Any game takes a \emph{finite} number of
+	moves to play
+
+		Induction: if I have a new game, and play it, it will take one more move
+		than the option I chose
+
+	This number is not necessarily \emph{bounded}. Given a game that does not
+	correspond to a dyadic number, it is possible to take more than $N$ moves in
+	it, $\forall N$.
+
+----------------------------------------------------------------------
+
 PICSLIDE FIG webpix/axe.jpg
 
 ----------------------------------------------------------------------
@@ -464,7 +487,7 @@ Axiom 1R: what is a (real) number?
 	Recall: a number is: a set of options for the Left player, and a set of
 	options for the Right player
 
-		$x = (x^L | x^R)$, s.t.:
+		$x = (x^L~|~x^R)$, s.t.:
 		
 			no $x^L \geq x^R$
 
@@ -473,7 +496,7 @@ Axiom 1R: what is a (real) number?
 	A real number is: a set of options for the Left player, and a set of
 	options for the Right player
 
-		$x = (x^L | x^R)$, s.t.:
+		$x = (x^L~|~x^R)$, s.t.:
 		
 			no $x^L \geq x^R$
 
@@ -496,9 +519,9 @@ Theorem
 
 	You can construct division and show that the surreal numbers are a field
 
-		Insane recursion that only a genius could come up with, seriously
+		Insane induction that only a genius could come up with, seriously
 
-		Recursion simultaneously on simpler quotients, and on the quotient itself
+		Induction simultaneously on simpler quotients, and on the quotient itself
 
 ----------------------------------------------------------------------
 
@@ -539,7 +562,8 @@ Conclusion
 	We can define a bewildering array of games with a simple, recursive
 	definition
 
-	By defining addition, we can chop these into values, which form a group under sensible game addition
+	By defining addition, we can chop these into values, which form a group
+	under sensible game addition
 
 	By recursively requiring making a move to have a cost, we can chop these
 	further into numbers, which contain the reals, the infinite ordinals and a
@@ -547,14 +571,16 @@ Conclusion
 
 		These surreal numbers form a field
 
+	Game values are the best thing
+
 ----------------------------------------------------------------------
 
 RSLIDE Resources
 
-	* \emph{On Numbers and Games}, Conway
+	\emph{On Numbers and Games}, Conway
 
-	* \emph{Surreal Numbers}, Knuth
+	\emph{Surreal Numbers}, Knuth
 
-	* \emph{Winning Ways}, Berlekamp, Conway, Guy
+	\emph{Winning Ways}, Berlekamp, Conway, Guy
 
 ----------------------------------------------------------------------
