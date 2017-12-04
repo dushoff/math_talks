@@ -1,4 +1,10 @@
 
+EXTRA
+
+	Work on values vs.~games in 1R, 1N
+
+----------------------------------------------------------------------
+
 NOFRAME
 
 \newcommand{\outc}{\ensuremath{\mathcal{O}}}
@@ -409,6 +415,8 @@ Simplicity theorem
 
 	Simplest: earliest created; it has no options that are not prohibited
 
+		\ldots or else those would be simpler, non-prohibited values
+
 ----------------------------------------------------------------------
 
 Integers
@@ -570,6 +578,8 @@ Conclusion
 	consistent set of infitesimals
 
 		These surreal numbers form a field
+
+	There are also interesting game values that are \emph{not} numbers
 
 	Game values are the best thing
 
