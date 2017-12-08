@@ -1,3 +1,16 @@
+
+EXTRA
+
+	Work on values vs.~games in 1R, 1N
+
+----------------------------------------------------------------------
+
+NOFRAME
+
+\newcommand{\outc}{\ensuremath{\mathcal{O}}}
+
+----------------------------------------------------------------------
+
 PRESENT \vfill\begin{center} 
 
 Game values and (sur)real numbers
@@ -10,7 +23,7 @@ Jonathan Dushoff, McMaster University
 
 PRESENT \vfill
 
-PRESENT McMaster Undergraduate lecture
+PRESENT McMaster Math 3A
 
 PRESENT \vfill
 
@@ -32,20 +45,27 @@ GOALS
 
 	Stay on this side of sanity
 
-
 ----------------------------------------------------------------------
 
 Game theory
 
-ADD POKER
+BC
 
 	Classic game theory is the theory of games with \emph{imperfect information}
 
 	Why would that be?
 
+NC
+
+SIDEFIG webpix/poker.jpg
+
+EC
+
 ----------------------------------------------------------------------
 
 Determinism
+
+BC
 
 	Games with perfect information are \emph{boring}
 
@@ -53,11 +73,17 @@ Determinism
 
 	Analyze the game tree; figure out who wins
 
-ADD Game tree
+NC
+
+SIDEFIG webpix/tictac.png
+
+EC
 
 ----------------------------------------------------------------------
 
 Combinatorial game theory
+
+BC
 
 	Except that deterministic games are not boring at all
 
@@ -66,89 +92,271 @@ Combinatorial game theory
 
 	The result was the best thing
 
+NC
+
+SIDEFIG webpix/go.png
+
+EC
+
 ----------------------------------------------------------------------
 
 Resources
 
+	\emph{On Numbers and Games}, Conway
+
+	\emph{Surreal Numbers}, Knuth
+
+	\emph{Winning Ways}, Berlekamp, Conway, Guy
+
 ----------------------------------------------------------------------
 
-What is a game?
+Review
 
-	Game state
+	We define the real numbers by:
+
+		Building the integers as nested sets
+
+		Building the rationals as equivalence classes of ordered pairs of integers
+
+		Building the reals as cuts of the rationals
+
+	A lot of work, also, we're left with three definitions of the number 3 (and
+	2 of the number 3/2)
 
 ----------------------------------------------------------------------
+
+Axiom 1: what is a game?
+
+	A game is: a set of options for the Left player, and a set of options for the
+	Right player
+
+		$x = (x^L~|~x^R)$
+
+		Options are \emph{previously defined} games
+
+	A game \emph{state} is a game together with a specification of whose turn it
+	is
+
+	Motivation: Clearly define a wide range of deterministic games
+
+		in a way that's going to make it easy to add and subtract them
+
+	Bonus: Highly inductive
+
+----------------------------------------------------------------------
+
+Um, what?
 
 	I have just defined a bewilderingly wonderful agglomeration of objects
 
 		We will need to ``chop'' it three times to get to the real numbers
 
+	But is it clear that I've defined any objects at all?
+
 ----------------------------------------------------------------------
 
 What are some games?
+
+	A set of options for the Left player, and a set of options for the Right
+	player
+
+	$(\emptyset~|~\emptyset)$ = $(|)$
+
+		0
+
+	$(0~|~)$
+
+		1
+
+	$(~|~0)$
+
+		-1
+
+	$(0~|~0)$
+
+		*
 
 ----------------------------------------------------------------------
 
 How to play a game?
 
+	If it's your turn, you choose an option
+
+	It's then the other player's turn in that game
+
+	If you have no options than you lose
+
 ----------------------------------------------------------------------
 
-Hackenbush, an example game
+Hackenbush
+
+	Uses a drawing with blue, red and green lines, and a ``ground''
+
+	On your turn, you remove a line
+
+		Lines no longer connected to ground are removed
+
+	bLue lines can be removed by Left
+
+	Red lines can be removed by Right
+
+	greeN lines can be removed by aNyone
 
 ----------------------------------------------------------------------
 
 What outcomes can a game have?
 
-----------------------------------------------------------------------
+	$\outc(0) = S$ -- second player wins
 
-Adding games
+	$\outc(*) = F$ -- first player wins
 
-----------------------------------------------------------------------
+	$\outc(1) = L$ -- Left player wins
 
-Second-player win
-
-	Adding a game with outcome $S$ never changes the outcome of the game
+	$\outc(-1) = R$ -- Right player wins
 
 ----------------------------------------------------------------------
 
-Other outcomes
+Axiom 2: Adding games
 
-	Other outcomes can't possibly have this property
+	To play in the game $A+B$, you move \emph{either} in $A$ or in $B$
 
-		Why not?
+		$A + B = (A+B^L, A^L+B~|~A+B^R, A^R+B)$
 
-----------------------------------------------------------------------
+	This is perfectly well defined, and beautifully inductive
 
-CHOP
+		All games are defined in terms of previously defined games
 
-----------------------------------------------------------------------
+	Motivation: related to thinking about certain kinds of specific games
 
-Game values
-
-	We consider two games the same if:
+		Also, turns out to be super-cool
 
 ----------------------------------------------------------------------
 
-Negatives
+Examples
 
-	We define the negative of a game
+	What happens if we add games with various outcomes?
 
-	A=B iff A-B = 0
+		$S + S = S$
 
-----------------------------------------------------------------------
+		$F + F = ?$
 
-Partial Ordering
+		$L + L = L$
 
-----------------------------------------------------------------------
+		$L + R = ?$
 
-First player win
-
-	Is outcome $F$ particularly interesting?
-
-		Yes
+		$L + F = ?$
 
 ----------------------------------------------------------------------
 
-CHOP
+Some games are better
+
+	We say $A \leq B$ if $B$ is at least as good for the Left player as $A$
+
+	Motivation:
+	
+		classify games by their potential additive effects
+
+		put a (partial) ordering on the games
+
+----------------------------------------------------------------------
+
+Definition
+
+	The \textbf{negative} of a game reverses the roles of Left and Right
+
+	This has a nice, recursive definition
+
+		$A = (A^L~|~A^R)$
+
+		$-A \equiv (-A^R~|~-A^L)$
+
+	We then evaluate $A:B$ by looking at the outcome of $A - B \equiv A + (-B)$
+
+----------------------------------------------------------------------
+
+At least as good
+
+	$A$ is at least as good as $B$ (for Left) if $A-B$ has no good moves (for
+	Right)
+
+		This means $\outc(A-B) = $
+
+			L, or S
+
+----------------------------------------------------------------------
+
+Mirror world
+
+BCC
+
+	It is sometimes useful to construct $A-B$ by imagining a mirror, and putting
+	$B$ on the opposite side of the mirror (Left and Right are reversed there)
+
+NCC
+
+SIDEFIG webpix/mirror.jpg
+
+EC
+
+----------------------------------------------------------------------
+
+Axiom 3: Partial ordering
+
+	We say position $A-B$ is good for Left, \emph{unless}
+
+		Right has a good move
+
+	We say $A \geq B$ \emph{unless}
+
+		Some $A^R \leq B$, or
+
+		Some $B^L \geq A$
+
+----------------------------------------------------------------------
+
+Partial ordering
+
+	$\outc(A-B)$?
+
+		L $\implies A>B$
+
+		R $\implies A<B$
+
+		S $\implies A=B$
+
+		F $\implies A \sim B$
+
+----------------------------------------------------------------------
+
+Theorem
+
+	If $A=B$, then:
+
+		$\forall X, \outc(X+A) = \outc(X+B)$
+
+		$\outc(X+A)$
+
+			$ = \outc((X+A) + (B-A)) $
+			
+			$ = \outc((X+B) + (A-A)) $
+			
+			$ = \outc(X+B) $
+
+----------------------------------------------------------------------
+
+PICSLIDE FIG webpix/axe.jpg
+
+----------------------------------------------------------------------
+
+Values
+
+	We can thus define a game value as an \emph{equivalence class} of games
+
+		A set of games that are linked by an equivalence relation
+
+		The rational numbers were defined last week in a similar way:
+
+			1/2 is the equivalence class of ordered pairs (1, 2); (2, 4); \ldots
 
 ----------------------------------------------------------------------
 
@@ -156,19 +364,34 @@ Numbers
 
 	The values I've defined are a very cool group.
 
-	But you can't make them a ring
+	But not very numerical:
 
-	Games have ``numerical'' value if you can count free moves, which works when moving is always bad.
+		$* + * = 0$
+
+	Games have ``numerical'' value if you can count free moves, which works when
+	moving is always bad.
 
 ----------------------------------------------------------------------
 
-RSLIDE Game definition
+PICSLIDE FIG webpix/axe.jpg
 
 ----------------------------------------------------------------------
 
-Number definition
+Axiom 1N: what is a (surreal) number?
 
-	Numbers are values of numerical games
+	Recall: a game is: a set of options for the Left player, and a set of
+	options for the Right player
+
+		$x = (x^L~|~x^R)$
+
+		Options are \emph{previously defined} games
+
+	A number is: a set of options for the Left player, and a set of options for
+	the Right player
+
+		$x = (x^L~|~x^R)$, s.t. no $x^L \geq x^R$
+
+		Options are \emph{previously defined} numbers
 
 ----------------------------------------------------------------------
 
@@ -176,39 +399,198 @@ Examples
 
 	1 + 1 = 2
 
-	(0|1)
+	$(0|1)$
 
-	(0|2)
+	$(0|2)$
 
-	(0|3)
-
-----------------------------------------------------------------------
-
-Mirror world
+	$(0|3)$
 
 ----------------------------------------------------------------------
 
-Binary expansions
+Simplicity theorem
+
+	The value of $(x^L~|~x^R)$ is the simplest, non-prohibited value
+
+	Prohibited: if if is larger than some $x^R$ or less than some $x^L$
+
+	Simplest: earliest created; it has no options that are not prohibited
+
+		\ldots or else those would be simpler, non-prohibited values
+
+----------------------------------------------------------------------
+
+Integers
+
+	We create the integers as $n+1 = (n|)$
+
+----------------------------------------------------------------------
+
+Binary fractions
+
+	We create the (fractional) dyadic rationals as
+
+		$(2k+1)/2^{n+1} = (k/2^n~|~(k+1)/2^n)$
+
+		e.g., $7/16 = (3/8~|~1/2)$
+
+	This is also how we \emph{define} the dyadic rationals: integers divided by
+	powers of two.
 
 ----------------------------------------------------------------------
 
 The limit
 
+	What happens if we take the limit of all numbers we can make in a finite
+	number of steps?
+
+	We can get all the reals \ldots
+
+		e.g., $1/3 = (0, 1/4, 5/16, \dots~|~1, 1/2, 3/8, \dots)$
+
+	plus some very weird stuff
+
+		$\omega = (0, 1, 2,  \dots~|~)$
+
+		$1/\omega = (0|1, 1/2, 1/4, \dots  )$
+
 ----------------------------------------------------------------------
 
 DEFHEAD 0.999\ldots
 
+	Is 0.999\ldots really equal to 1?
 
+	Depends on your definitions
 
-Examples
+	What is 0.1111\ldots (base 2) as a game?
 
-	
+----------------------------------------------------------------------
 
+Ordinals
 
+	You can take as many limits as you want, and get all of the infinite
+	ordinals, and a wide range of infinitesimals
 
+----------------------------------------------------------------------
 
+Finitude
 
-CONCLUSIONS
+	Any game takes a \emph{finite} number of
+	moves to play
 
-	We're out of time
+		Induction: if I have a new game, and play it, it will take one more move
+		than the option I chose
 
+	This number is not necessarily \emph{bounded}. Given a game that does not
+	correspond to a dyadic number, it is possible to take more than $N$ moves in
+	it, $\forall N$.
+
+----------------------------------------------------------------------
+
+PICSLIDE FIG webpix/axe.jpg
+
+----------------------------------------------------------------------
+
+Axiom 1R: what is a (real) number?
+
+	Recall: a number is: a set of options for the Left player, and a set of
+	options for the Right player
+
+		$x = (x^L~|~x^R)$, s.t.:
+		
+			no $x^L \geq x^R$
+
+		Options are \emph{previously defined} numbers
+
+	A real number is: a set of options for the Left player, and a set of
+	options for the Right player
+
+		$x = (x^L~|~x^R)$, s.t.:
+		
+			no $x^L \geq x^R$
+
+			$x^L$ has a largest element iff 
+			$x^R$ has a smallest element
+
+		Options are \emph{previously defined} real numbers
+
+----------------------------------------------------------------------
+
+Axiom 4
+
+	You can define multiplication
+
+		Motivation: $(x-x^S)(y-y^S)$ has a known sign
+
+----------------------------------------------------------------------
+
+Theorem
+
+	You can construct division and show that the surreal numbers are a field
+
+		Insane induction that only a genius could come up with, seriously
+
+		Induction simultaneously on simpler quotients, and on the quotient itself
+
+----------------------------------------------------------------------
+
+Surreal arithmetic
+
+	$\omega - 1$,
+
+	$\omega/2$, $\sqrt(\omega)$ 
+
+	Even crazier stuff: $\sqrt[3]{\omega-1} - \pi/\omega$
+
+----------------------------------------------------------------------
+
+Micro-infinitesimals
+
+	If we allow values that aren't numbers, we have infinitesimals that are smaller than the smallest infinitesimal numbers
+
+----------------------------------------------------------------------
+
+Nimbers
+
+	We can define neutral games by identifying options for Left and Right
+
+	This is the theory of Nim values
+
+----------------------------------------------------------------------
+
+Hot games
+
+	Hot games are games where there can be a positive value to moving
+
+	Example: domineering
+
+----------------------------------------------------------------------
+
+Conclusion
+
+	We can define a bewildering array of games with a simple, recursive
+	definition
+
+	By defining addition, we can chop these into values, which form a group
+	under sensible game addition
+
+	By recursively requiring making a move to have a cost, we can chop these
+	further into numbers, which contain the reals, the infinite ordinals and a
+	consistent set of infitesimals
+
+		These surreal numbers form a field
+
+	There are also interesting game values that are \emph{not} numbers
+
+	Game values are the best thing
+
+----------------------------------------------------------------------
+
+RSLIDE Resources
+
+	\emph{On Numbers and Games}, Conway
+
+	\emph{Surreal Numbers}, Knuth
+
+	\emph{Winning Ways}, Berlekamp, Conway, Guy
+
+----------------------------------------------------------------------
