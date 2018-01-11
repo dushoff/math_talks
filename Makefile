@@ -18,7 +18,6 @@ Drop = ~/Dropbox/math_talks
 
 ## Content
 
-14:34
 Sources += local.txt.format
 
 ## Copyright not integrated into make system yet
