@@ -125,40 +125,26 @@ Review
 
 ----------------------------------------------------------------------
 
-Axiom 1: what is a game?
+TSEC Games
 
-	A game is: a set of options for the Left player, and a set of options for the
-	Right player
+	A game is:
+	
+		What I tell you
+		
+		a set of options for the Left player, and a set of options for
+		the Right player
 
-		$x = (x^L~|~x^R)$
+			$x = (x^L~|~x^R)$
 
 		Options are \emph{previously defined} games
 
-	A game \emph{state} is a game together with a specification of whose turn it
-	is
-
-	Motivation: Clearly define a wide range of deterministic games
-
-		in a way that's going to make it easy to add and subtract them
-
-	Bonus: Highly inductive
-
-----------------------------------------------------------------------
-
-Um, what?
-
-	I have just defined a bewilderingly wonderful agglomeration of objects
-
-		We will need to ``chop'' it three times to get to the real numbers
-
-	But is it clear that I've defined any objects at all?
 
 ----------------------------------------------------------------------
 
 What are some games?
 
-	A set of options for the Left player, and a set of options for the Right
-	player
+	A set of options for the Left player, and a set of options for the
+	Right player
 
 	$(\emptyset~|~\emptyset)$ = $(|)$
 
