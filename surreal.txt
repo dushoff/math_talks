@@ -1,9 +1,11 @@
 
+EXTRA What?
+
 ----------------------------------------------------------------------
 
 PRESENT \vfill\begin{center} 
 
-Game values and (sur)real numbers
+{\LARGE Game values and (sur)real numbers}
 
 PRESENT \vfill
 
@@ -21,7 +23,19 @@ PRESENT April 2019
 
 PRESENT \vfill\end{center}
 
+----------------------------------------------------------------------
+
+SEC Introduction
+
 ----------------------------------------------------------------
+
+NOFRAME
+
+\newcommand{\fuzzes}{\sim}
+\renewcommand{\fuzzes}{||}
+
+----------------------------------------------------------------------
+
 
 GOALS
 
@@ -71,6 +85,47 @@ EC
 
 ----------------------------------------------------------------------
 
+Hackenbush
+
+BC
+
+	On your turn, you remove one line
+
+		Lines no longer connected to ground are removed
+
+	bLue lines can be removed by Left
+
+	Red lines can be removed by Right
+
+	greeN lines can be removed by aNyone
+
+NC
+
+SIDEFIG webpix/hackenbush.png
+
+EC
+
+----------------------------------------------------------------------
+
+Domineering
+
+BC
+
+SIDEFIG webpix/Domineering.png
+
+NC
+
+	On your turn, you place a domino
+
+	Left places verticaL dominoes
+
+	Right places hoRizontal dominoes
+
+EC
+
+
+----------------------------------------------------------------------
+
 Resources
 
 	\emph{On Numbers and Games}, Conway
@@ -94,11 +149,11 @@ Review
 
 	With deterministic games, we build all this at once
 
-		and much more!
+		\ldots and much more!
 
 ----------------------------------------------------------------------
 
-SEC Games
+SEC Combinatoric games
 
 ----------------------------------------------------------------------
 
@@ -150,22 +205,6 @@ How to play a game?
 
 ----------------------------------------------------------------------
 
-Hackenbush
-
-	Uses a drawing with blue, red and green lines, and a ``ground''
-
-	On your turn, you remove a line
-
-		Lines no longer connected to ground are removed
-
-	bLue lines can be removed by Left
-
-	Red lines can be removed by Right
-
-	greeN lines can be removed by aNyone
-
-----------------------------------------------------------------------
-
 SEC Adding games
 
 ----------------------------------------------------------------------
@@ -193,9 +232,15 @@ Definition
 
 		$-A \equiv (-A^R~|~-A^L)$
 
+	Again, relying on beautiful induction
+
 ----------------------------------------------------------------------
 
-SEC Partial ordering
+TSEC Ordering games
+
+	We say that games are better if they are better for Left
+
+	\ldots in the context of adding games together
 
 ----------------------------------------------------------------------
 
@@ -228,7 +273,7 @@ Partial ordering
 
 	$A \not\geq B$ $B \geq A \implies A < B$
 
-	$A \not\geq B$ $B \not\geq A \implies A \sim B$
+	$A \not\geq B$ $B \not\geq A \implies A \fuzzes B$
 
 ----------------------------------------------------------------------
 
@@ -242,7 +287,7 @@ DEFHEAD 0=0
 	Similarly, if $A=B$, then adding $A$ has the same effect on any game
 	as adding $B$
 
-	This is not necessarily true if $A \sim B$
+	This is not necessarily true if $A \fuzzes B$
 
 ----------------------------------------------------------------------
 
@@ -297,13 +342,17 @@ Axiom 1N: what is a (surreal) number?
 
 Integers
 
-	We create the integers as $n+1 = (n|)$
+	We create the natural numbers as $n+1 = (n|)$
+
+	Negative integers are then defined by the negation rule:
+
+		$-n-1 = (|-n)$
 
 ----------------------------------------------------------------------
 
 Binary fractions
 
-	We can create any finite binary decimal
+	We can create any finite binary expansion
 
 		$(2k+1)/2^{n+1} = (k/2^n~|~(k+1)/2^n)$
 
@@ -313,8 +362,8 @@ Binary fractions
 
 The limit
 
-	What happens if we take the limit of all numbers we can make in a finite
-	number of steps?
+	What happens if we take the limit of all numbers we can make in a
+	finite number of steps?
 
 	We can get all the reals \ldots
 
@@ -406,19 +455,25 @@ Micro-infinitesimals
 
 ----------------------------------------------------------------------
 
-Nimbers
+Temperature
 
-	We can define neutral games by identifying options for Left and Right
+	Cold games are games where moving makes the position worse for your
+	side
 
-	This is the theory of Nim values
+		Number games are games that are (recursively) cold
 
-----------------------------------------------------------------------
+		Red-blue hackenbush
 
-Hot games
+	Neutral games are games where the positions are the same for left
+	and right
+
+		The theory of Nim values
+
+		Green hackenbush
 
 	Hot games are games where there can be a positive value to moving
 
-	Example: domineering
+		Example: domineering
 
 ----------------------------------------------------------------------
 
@@ -434,7 +489,7 @@ Conclusion
 	subset that we call the surreal numbers
 	
 		these contain the reals, the infinite ordinals and a consistent
-		set of infitesimals
+		set of infinitesimals
 
 		These surreal numbers form a field
 
@@ -458,7 +513,7 @@ Beyond the conclusions
 
 ----------------------------------------------------------------------
 
-Simplicity theorem
+Simplicity theorem (numbers)
 
 	The value of $(x^L~|~x^R)$ is the simplest, non-prohibited value
 
@@ -470,6 +525,18 @@ Simplicity theorem
 
 ----------------------------------------------------------------------
 
+More simplicity
+
+	If no non-prohibited value already exists, then the value is
+
+		$(x^L + x^R)/2$, if both exist
+
+		$x^L + 1$, if only $x^L$ exists
+
+		\ldots
+
+----------------------------------------------------------------------
+
 Finitude
 
 	Any game takes a \emph{finite} number of
@@ -478,6 +545,9 @@ Finitude
 		Induction: if I have a new game, and play it, it will take one
 		more move than the option I chose
 
-	This number is not necessarily \emph{bounded}. Given a game that
-	does not correspond to a dyadic number, it is possible to take more
-	than $N$ moves in it, for any integer $N$.
+	This number is not necessarily \emph{bounded}. 
+	
+	In particular, a number-game that does not correspond to a
+	finite binary expansion has an unbounded number of possible moves 
+	
+		(depending on what games it is added to)
