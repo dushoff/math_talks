@@ -1,14 +1,4 @@
 
-EXTRA
-
-	Work on values vs.~games in 1R, 1N
-
-----------------------------------------------------------------------
-
-NOFRAME
-
-\newcommand{\outc}{\ensuremath{\mathcal{O}}}
-
 ----------------------------------------------------------------------
 
 PRESENT \vfill\begin{center} 
@@ -19,7 +9,7 @@ PRESENT \vfill
 
 Jonathan Dushoff, McMaster University
 
-\url{http://lalashan.mcmaster.ca/DushoffLab}
+\url{dushoff@mcmaster.ca}
 
 PRESENT \vfill
 
@@ -27,7 +17,7 @@ PRESENT McMaster Math 3A
 
 PRESENT \vfill
 
-PRESENT December 2017
+PRESENT April 2019
 
 PRESENT \vfill\end{center}
 
@@ -51,9 +41,10 @@ Game theory
 
 BC
 
-	Classic game theory is the theory of games with \emph{imperfect information}
+	Classic game theory is the theory of games with \emph{imperfect
+	information}
 
-	Why would that be?
+	Nash equilibria and so on
 
 NC
 
@@ -63,34 +54,14 @@ EC
 
 ----------------------------------------------------------------------
 
-Determinism
-
-BC
-
-	Games with perfect information are \emph{boring}
-
-		Mathematically, not practically
-
-	Analyze the game tree; figure out who wins
-
-NC
-
-SIDEFIG webpix/tictac.png
-
-EC
-
-----------------------------------------------------------------------
-
 Combinatorial game theory
 
 BC
 
-	Except that deterministic games are not boring at all
+	The analysis of games with perfect information
 
-	Conway decided to think about what it might mean to add two deterministic
-	games together
-
-	The result was the best thing
+	\ldots accidentally led to some of the most beautiful theories of
+	analysis
 
 NC
 
@@ -116,32 +87,37 @@ Review
 
 		Building the integers as nested sets
 
-		Building the rationals as equivalence classes of ordered pairs of integers
+		Building the rationals as equivalence classes of ordered pairs of
+		integers
 
 		Building the reals as cuts of the rationals
 
-	A lot of work, also, we're left with three definitions of the number 3 (and
-	2 of the number 3/2)
+	With deterministic games, we build all this at once
+
+		and much more!
 
 ----------------------------------------------------------------------
 
-TSEC Games
+SEC Games
+
+----------------------------------------------------------------------
+
+Axiom 1
 
 	A game is:
-	
-		What I tell you
-		
+
 		a set of options for the Left player, and a set of options for
 		the Right player
 
-			$x = (x^L~|~x^R)$
+			$X = (X^L~|~X^R)$
 
 		Options are \emph{previously defined} games
 
+	So, what are some games?
 
 ----------------------------------------------------------------------
 
-What are some games?
+Some games
 
 	A set of options for the Left player, and a set of options for the
 	Right player
@@ -190,59 +166,20 @@ Hackenbush
 
 ----------------------------------------------------------------------
 
-What outcomes can a game have?
-
-	$\outc(0) = S$ -- second player wins
-
-	$\outc(*) = F$ -- first player wins
-
-	$\outc(1) = L$ -- Left player wins
-
-	$\outc(-1) = R$ -- Right player wins
+SEC Adding games
 
 ----------------------------------------------------------------------
 
-Axiom 2: Adding games
+Axiom 2
 
-	To play in the game $A+B$, you move \emph{either} in $A$ or in $B$
+	$A + B = (A+b^L, a^L+B~|~A+b^R, a^R+B)$
 
-		$A + B = (A+B^L, A^L+B~|~A+B^R, A^R+B)$
+	In other words, left can pick an left option from B and add it to A
+	(and so on)
 
 	This is perfectly well defined, and beautifully inductive
 
 		All games are defined in terms of previously defined games
-
-	Motivation: related to thinking about certain kinds of specific games
-
-		Also, turns out to be super-cool
-
-----------------------------------------------------------------------
-
-Examples
-
-	What happens if we add games with various outcomes?
-
-		$S + S = S$
-
-		$F + F = ?$
-
-		$L + L = L$
-
-		$L + R = ?$
-
-		$L + F = ?$
-
-----------------------------------------------------------------------
-
-Some games are better
-
-	We say $A \leq B$ if $B$ is at least as good for the Left player as $A$
-
-	Motivation:
-	
-		classify games by their potential additive effects
-
-		put a (partial) ordering on the games
 
 ----------------------------------------------------------------------
 
@@ -256,93 +193,72 @@ Definition
 
 		$-A \equiv (-A^R~|~-A^L)$
 
-	We then evaluate $A:B$ by looking at the outcome of $A - B \equiv A + (-B)$
+----------------------------------------------------------------------
+
+SEC Partial ordering
 
 ----------------------------------------------------------------------
 
-At least as good
+Axiom 3
 
-	$A$ is at least as good as $B$ (for Left) if $A-B$ has no good moves (for
-	Right)
-
-		This means $\outc(A-B) = $
-
-			L, or S
-
-----------------------------------------------------------------------
-
-Mirror world
-
-BCC
-
-	It is sometimes useful to construct $A-B$ by imagining a mirror, and putting
-	$B$ on the opposite side of the mirror (Left and Right are reversed there)
-
-NCC
-
-SIDEFIG webpix/mirror.jpg
-
-EC
-
-----------------------------------------------------------------------
-
-Axiom 3: Partial ordering
-
-	We say position $A-B$ is good for Left, \emph{unless}
+	Adding game $A$ to an existing game can't hurt Left
+	\emph{unless}
 
 		Right has a good move
 
-	We say $A \geq B$ \emph{unless}
+	$A \geq 0$ \emph{unless}
 
-		Some $A^R \leq B$, or
+		Some option $a^R \leq 0$ \textbf{Def:} $-a^R \geq 0$
 
-		Some $B^L \geq A$
+	In other words, this game can't hurt me unless
+
+		you can move to a game that can't hurt you
 
 ----------------------------------------------------------------------
 
 Partial ordering
 
-	$\outc(A-B)$?
+	\textbf{Def:} $A \geq B \iff A-B \geq 0$ 
 
-		L $\implies A>B$
+		\textbf{Def:} $A + -B \geq 0$
 
-		R $\implies A<B$
+	$A \geq B$ $B \geq A \implies A = B$
 
-		S $\implies A=B$
+	$A \geq B$ $B \not\geq A \implies A > B$
 
-		F $\implies A \sim B$
+	$A \not\geq B$ $B \geq A \implies A < B$
 
-----------------------------------------------------------------------
-
-Theorem
-
-	If $A=B$, then:
-
-		$\forall X, \outc(X+A) = \outc(X+B)$
-
-		$\outc(X+A)$
-
-			$ = \outc((X+A) + (B-A)) $
-			
-			$ = \outc((X+B) + (A-A)) $
-			
-			$ = \outc(X+B) $
+	$A \not\geq B$ $B \not\geq A \implies A \sim B$
 
 ----------------------------------------------------------------------
 
-PICSLIDE FIG webpix/axe.jpg
+DEFHEAD 0=0
+
+	Any game that is ``equal to'' 0 can't hurt either player
+
+	If I add a game which the second player wins, I don't change the
+	outcome of any game
+
+	Similarly, if $A=B$, then adding $A$ has the same effect on any game
+	as adding $B$
+
+	This is not necessarily true if $A \sim B$
 
 ----------------------------------------------------------------------
 
-Values
+SEC Values and numbers
 
-	We can thus define a game value as an \emph{equivalence class} of games
+----------------------------------------------------------------------
 
-		A set of games that are linked by an equivalence relation
+Equivalence classes
 
-		The rational numbers were defined last week in a similar way:
+	We \textbf{define} a game value as an \emph{equivalence class} of
+	games
 
-			1/2 is the equivalence class of ordered pairs (1, 2); (2, 4); \ldots
+	The rational numbers were defined for you in a similar way:
+
+		1/2 is the equivalence class of ordered pairs (1, 2); (2, 4);
+		\ldots
 
 ----------------------------------------------------------------------
 
@@ -354,12 +270,8 @@ Numbers
 
 		$* + * = 0$
 
-	Games have ``numerical'' value if you can count free moves, which works when
-	moving is always bad.
-
-----------------------------------------------------------------------
-
-PICSLIDE FIG webpix/axe.jpg
+	Games have ``numerical'' value if you can count free moves, which
+	works when moving is always bad.
 
 ----------------------------------------------------------------------
 
@@ -372,36 +284,14 @@ Axiom 1N: what is a (surreal) number?
 
 		Options are \emph{previously defined} games
 
-	A number is: a set of options for the Left player, and a set of options for
-	the Right player
+	A number-game is: a set of options for the Left player, and a set of
+	options for the Right player
 
 		$x = (x^L~|~x^R)$, s.t. no $x^L \geq x^R$
 
-		Options are \emph{previously defined} numbers
+		Options are \emph{previously defined} number-games
 
-----------------------------------------------------------------------
-
-Examples
-
-	1 + 1 = 2
-
-	$(0|1)$
-
-	$(0|2)$
-
-	$(0|3)$
-
-----------------------------------------------------------------------
-
-Simplicity theorem
-
-	The value of $(x^L~|~x^R)$ is the simplest, non-prohibited value
-
-	Prohibited: if if is larger than some $x^R$ or less than some $x^L$
-
-	Simplest: earliest created; it has no options that are not prohibited
-
-		\ldots or else those would be simpler, non-prohibited values
+	A number is a value associated with a class of number-games
 
 ----------------------------------------------------------------------
 
@@ -413,14 +303,11 @@ Integers
 
 Binary fractions
 
-	We create the (fractional) dyadic rationals as
+	We can create any finite binary decimal
 
 		$(2k+1)/2^{n+1} = (k/2^n~|~(k+1)/2^n)$
 
 		e.g., $7/16 = (3/8~|~1/2)$
-
-	This is also how we \emph{define} the dyadic rationals: integers divided by
-	powers of two.
 
 ----------------------------------------------------------------------
 
@@ -458,24 +345,6 @@ Ordinals
 
 ----------------------------------------------------------------------
 
-Finitude
-
-	Any game takes a \emph{finite} number of
-	moves to play
-
-		Induction: if I have a new game, and play it, it will take one more move
-		than the option I chose
-
-	This number is not necessarily \emph{bounded}. Given a game that does not
-	correspond to a dyadic number, it is possible to take more than $N$ moves in
-	it, $\forall N$.
-
-----------------------------------------------------------------------
-
-PICSLIDE FIG webpix/axe.jpg
-
-----------------------------------------------------------------------
-
 Axiom 1R: what is a (real) number?
 
 	Recall: a number is: a set of options for the Left player, and a set of
@@ -501,21 +370,18 @@ Axiom 1R: what is a (real) number?
 
 ----------------------------------------------------------------------
 
-Axiom 4
+Axiom 4 (not shown)
 
 	You can define multiplication
 
 		Motivation: $(x-x^S)(y-y^S)$ has a known sign
 
-----------------------------------------------------------------------
+	\ldots and construct division
 
-Theorem
+		Insane simultaneous induction on simpler quotients, and on the
+		main quotient 
 
-	You can construct division and show that the surreal numbers are a field
-
-		Insane induction that only a genius could come up with, seriously
-
-		Induction simultaneously on simpler quotients, and on the quotient itself
+	The surreal numbers are a \emph{field}
 
 ----------------------------------------------------------------------
 
@@ -529,9 +395,14 @@ Surreal arithmetic
 
 ----------------------------------------------------------------------
 
+SEC Beyond numbers
+
+----------------------------------------------------------------------
+
 Micro-infinitesimals
 
-	If we allow values that aren't numbers, we have infinitesimals that are smaller than the smallest infinitesimal numbers
+	If we allow values that aren't numbers, we have infinitesimals that
+	are smaller than the smallest infinitesimal numbers
 
 ----------------------------------------------------------------------
 
@@ -556,12 +427,14 @@ Conclusion
 	We can define a bewildering array of games with a simple, recursive
 	definition
 
-	By defining addition, we can chop these into values, which form a group
-	under sensible game addition
+	By defining addition, we can organize these into values, which form a
+	group under sensible game addition
 
-	By recursively requiring making a move to have a cost, we can chop these
-	further into numbers, which contain the reals, the infinite ordinals and a
-	consistent set of infitesimals
+	By recursively requiring making a move to have a cost, we identify a
+	subset that we call the surreal numbers
+	
+		these contain the reals, the infinite ordinals and a consistent
+		set of infitesimals
 
 		These surreal numbers form a field
 
@@ -571,12 +444,40 @@ Conclusion
 
 ----------------------------------------------------------------------
 
-RSLIDE Resources
+Beyond the conclusions
 
-	\emph{On Numbers and Games}, Conway
+	The option framework is sort of a generalization of
 
-	\emph{Surreal Numbers}, Knuth
+		the Cantor framework for the ordinals
+		
+			(building up, never a right option)
 
-	\emph{Winning Ways}, Berlekamp, Conway, Guy
+		the Dedekind framework for the reals
+		
+			(filling in, always a right option)
 
 ----------------------------------------------------------------------
+
+Simplicity theorem
+
+	The value of $(x^L~|~x^R)$ is the simplest, non-prohibited value
+
+	Prohibited: if if is larger than some $x^R$ or less than some $x^L$
+
+	Simplest: earliest created; it has no options that are not prohibited
+
+		\ldots or else those would be simpler, non-prohibited values
+
+----------------------------------------------------------------------
+
+Finitude
+
+	Any game takes a \emph{finite} number of
+	moves to play
+
+		Induction: if I have a new game, and play it, it will take one
+		more move than the option I chose
+
+	This number is not necessarily \emph{bounded}. Given a game that
+	does not correspond to a dyadic number, it is possible to take more
+	than $N$ moves in it, for any integer $N$.
