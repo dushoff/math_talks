@@ -23,7 +23,7 @@ Sources += local.txt.format
 ## Copyright not integrated into make system yet
 Sources += copy.tex
 
-Sources += $(wildcard *.txt)
+Sources += $(wildcard *.txt *.step)
 
 ## Created this directory to make the first slide version of surreal lecture
 ## 2017
@@ -44,7 +44,7 @@ Sources += $(dirs)
 -include $(ms)/visual.mk
 
 -include $(ms)/newtalk.mk
--include $(ms)/newlatex.mk
+-include $(ms)/texdeps.mk
 -include $(ms)/webpix.mk
 -include $(ms)/pandoc.mk
 
