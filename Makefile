@@ -16,7 +16,7 @@ vim_session:
 
 
 Drop = ~/Dropbox/math_talks
--include $(ms)/newtalk.def
+-include makestuff/newtalk.def
 
 ## Content
 
