@@ -1,20 +1,22 @@
-# math_talks
-### Hooks for the editor to set the default target
+# math_talks, a screens project directory
+
 current: target
-target = Makefile
 -include target.mk
-target: $(target)
 
-##################################################################
+# include makestuff/perl.def
 
-Sources = Makefile .ignore README.md sub.mk LICENSE.md
-include sub.mk
-# include $(ms)/perl.def
+######################################################################
+
+# Content
+
+vim_session:
+	bash -cl "vmt"
+
+######################################################################
+
 
 Drop = ~/Dropbox/math_talks
 -include $(ms)/newtalk.def
-
-##################################################################
 
 ## Content
 
@@ -40,12 +42,20 @@ Sources += $(dirs)
 
 ######################################################################
 
--include $(ms)/git.mk
--include $(ms)/visual.mk
+Sources += Makefile
 
--include $(ms)/newtalk.mk
--include $(ms)/texdeps.mk
--include $(ms)/webpix.mk
--include $(ms)/pandoc.mk
+Ignore += makestuff
+msrepo = https://github.com/dushoff
+Makefile: makestuff/Makefile
+makestuff/Makefile:
+	git clone $(msrepo)/makestuff
+	ls $@
 
-# -include $(ms)/wrapR.mk
+-include makestuff/os.mk
+-include makestuff/newtalk.mk
+-include makestuff/texdeps.mk
+-include makestuff/webpix.mk
+-include makestuff/pandoc.mk
+-include makestuff/git.mk
+-include makestuff/visual.mk
+-include makestuff/projdir.mk
