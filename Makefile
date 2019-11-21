@@ -35,6 +35,9 @@ surreal.final.pdf: surreal.txt
 surreal.handouts.pdf: surreal.txt
 surreal.html: surreal.step
 
+sursum.draft.pdf: sursum.txt
+sursum.handouts.pdf: sursum.txt
+
 ######################################################################
 
 dfiles: $(dirs:%=%/Makefile)

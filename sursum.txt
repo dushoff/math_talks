@@ -1,7 +1,4 @@
 
-EXTRA What?
-
-----------------------------------------------------------------------
 
 PRESENT \vfill\begin{center} 
 
@@ -19,7 +16,7 @@ PRESENT McMaster Math 3A
 
 PRESENT \vfill
 
-PRESENT December 2019
+PRESENT April 2019
 
 PRESENT \vfill\end{center}
 
@@ -36,93 +33,18 @@ NOFRAME
 
 ----------------------------------------------------------------------
 
+Game theory and theory of games
 
-GOALS
-
-	Describe:
-
-		Combinatoric games
-
-		Surreal numbers
-
-		Where the real numbers fit in
-
-	Stay on this side of sanity
-
-----------------------------------------------------------------------
-
-Game theory
-
-BC
-
-	Classic game theory is the theory of games with \emph{imperfect
+	\textbf{Game theory} is the theory of games with \emph{imperfect
 	information}
 
-	Nash equilibria and so on
+		Nash equilibria and so on
 
-NC
+	\textbf{Theory of games} (or combinatorial game theory) is the theory of
+	games with \emph{perfect} information
 
-SIDEFIG webpix/poker.jpg
-
-EC
-
-----------------------------------------------------------------------
-
-Combinatorial game theory
-
-BC
-
-	The analysis of games with perfect information
-
-	\ldots accidentally led to some of the most beautiful theories of
-	analysis
-
-NC
-
-SIDEFIG webpix/go.png
-
-EC
-
-----------------------------------------------------------------------
-
-Hackenbush
-
-BC
-
-	On your turn, you remove one line
-
-		Lines no longer connected to ground are removed
-
-	bLue lines can be removed by Left
-
-	Red lines can be removed by Right
-
-	greeN lines can be removed by aNyone
-
-NC
-
-SIDEFIG webpix/hackenbush.png
-
-EC
-
-----------------------------------------------------------------------
-
-Domineering
-
-BC
-
-SIDEFIG webpix/Domineering.png
-
-NC
-
-	On your turn, you place a domino
-
-	Left places verticaL dominoes
-
-	Right places hoRizontal dominoes
-
-EC
-
+		\ldots accidentally led to some of the most beautiful theories of
+		analysis
 
 ----------------------------------------------------------------------
 
@@ -153,13 +75,45 @@ Review
 
 ----------------------------------------------------------------------
 
-SEC Combinatoric games
+SEC Games
 
 ----------------------------------------------------------------------
 
-Axiom 1
+Hackenbush
 
-	A game is:
+	Draw a picture
+
+		bLue lines can be removed by Left
+
+		Red lines can be removed by Right
+
+		greeN lines can be removed by aNyone
+
+	On your turn, you remove one line
+
+		Lines no longer connected to ground are removed
+
+----------------------------------------------------------------------
+
+Domineering
+
+	On your turn, you place a domino on some sort of grid
+
+		Left places verticaL dominoes
+
+		Right places hoRizontal dominoes
+
+----------------------------------------------------------------------
+
+Defining games
+
+	Intuition: if you're playing a game, you have a set of moves
+
+		A move changes the game to a different game
+
+		If you don't have a move you lose!
+
+	A \textbf{game} is
 
 		a set of options for the Left player, and a set of options for
 		the Right player
@@ -168,67 +122,20 @@ Axiom 1
 
 		Options are \emph{previously defined} games
 
-	So, what are some games?
-
 ----------------------------------------------------------------------
 
-Some games
+Adding games
 
-	A set of options for the Left player, and a set of options for the
-	Right player
-
-	$(\emptyset~|~\emptyset)$ = $(|)$
-
-		0
-
-	$(0~|~)$
-
-		1
-
-	$(~|~0)$
-
-		-1
-
-	$(0~|~0)$
-
-		*
-
-----------------------------------------------------------------------
-
-How to play a game?
-
-	If it's your turn, you choose an option
-
-	It's then the other player's turn in that game
-
-	If you have no options than you lose
-
-----------------------------------------------------------------------
-
-TSEC Adding games
-
-HFIG 0.9 webpix/Domineering.png
-
-----------------------------------------------------------------------
-
-Axiom 2
+	Intuition: to play the sum of two games, you move in one of them when it's
+	your turn
 
 	$A + B = (A+b^L, a^L+B~|~A+b^R, a^R+B)$
 
-	In other words, left can pick an left option from B and add it to A
-	(and so on)
-
-	This is perfectly well defined, and beautifully inductive
-
-		All games are defined in terms of previously defined games
-
 ----------------------------------------------------------------------
 
-Definition
+Negatives
 
 	The \textbf{negative} of a game reverses the roles of Left and Right
-
-	This has a nice, recursive definition
 
 		$A = (A^L~|~A^R)$
 
@@ -240,76 +147,55 @@ Definition
 
 TSEC Ordering games
 
-	We say that games are better if they are better for Left
+	Intuition: adding game $A$ to an existing game can't hurt Left
+	\emph{unless} Right has a good move
 
-	\ldots in the context of adding games together
-
-----------------------------------------------------------------------
-
-Axiom 3
-
-	Adding game $A$ to an existing game can't hurt Left
-	\emph{unless}
-
-		Right has a good move
+		IOW, unless Right can move in $A$ to a game that doesn't hurt Right
 
 	$A \geq 0$ \emph{unless}
 
 		Some option $a^R \leq 0$ \textbf{Def:} $-a^R \geq 0$
 
-	In other words, this game can't hurt me unless
+	This is a perfectly complete definition (induction again!) that tells you
+	the outcome of any game
 
-		you can move to a game that can't hurt you
+----------------------------------------------------------------------
+
+Game analysis
+
+	$A \geq 0$ $A \leq 0 \implies A = 0$: second-player win
+
+	$A \geq 0$ $A \not\leq 0 \implies A > 0$: Left wins
+
+	$A \not\geq 0$ $A \leq 0 \implies A < 0$: Right wins
+
+	$A \not\geq 0$ $A \not\leq 0 \implies A \fuzzes B$: first-player win
 
 ----------------------------------------------------------------------
 
 Partial ordering
 
-	\textbf{Def:} $A \geq B \iff A-B \geq 0$ 
+	Intuition: $A$ is better (for Left) than $B$ if $A$ + the negative of $B$ is
+	good for left
+	
+	$A \geq B \iff A-B \geq 0$ 
 
-		\textbf{Def:} $A + -B \geq 0$
-
-	$A \geq B$ $B \geq A \implies A = B$
-
-	$A \geq B$ $B \not\geq A \implies A > B$
-
-	$A \not\geq B$ $B \geq A \implies A < B$
-
-	$A \not\geq B$ $B \not\geq A \implies A \fuzzes B$
+	\textbf{Def:} $A-B = A + (-B)$
 
 ----------------------------------------------------------------------
 
-DEFHEAD 0=0
+TSEC Values
 
-	Any game that is ``equal to'' 0 can't hurt either player
+	Two games have the same value if they have the same effect when added to any
+	other game
 
-	If I add a game which the second player wins, I don't change the
-	outcome of any game
+	Which is the same as saying if they're equal under the partial ordering above
 
-	Similarly, if $A=B$, then adding $A$ has the same effect on any game
-	as adding $B$
-
-	This is not necessarily true if $A \fuzzes B$
+	Thus, a game value as an \emph{equivalence class} of games
 
 ----------------------------------------------------------------------
 
-SEC Values and numbers
-
-----------------------------------------------------------------------
-
-Equivalence classes
-
-	We \textbf{define} a game value as an \emph{equivalence class} of
-	games
-
-	The rational numbers were defined for you in a similar way:
-
-		1/2 is the equivalence class of ordered pairs (1, 2); (2, 4);
-		\ldots
-
-----------------------------------------------------------------------
-
-Numbers
+TSEC Numbers
 
 	The values I've defined are a very cool group.
 
@@ -317,24 +203,19 @@ Numbers
 
 		$* + * = 0$
 
-	Games have ``numerical'' value if you can count free moves, which
-	works when moving is always bad.
-
 ----------------------------------------------------------------------
 
-Axiom 1N: what is a (surreal) number?
+What is a (surreal) number?
 
-	Recall: a game is: a set of options for the Left player, and a set of
-	options for the Right player
-
-		$x = (x^L~|~x^R)$
-
-		Options are \emph{previously defined} games
+	Intuition: a game is number-like if you never want to move. There's a
+	certain advantage for a given player, and they ``spend'' it by moving
+	
+		We build number-like games recursively.
 
 	A number-game is: a set of options for the Left player, and a set of
 	options for the Right player
 
-		$x = (x^L~|~x^R)$, s.t. no $x^L \geq x^R$
+		$x = (x^L~|~x^R)$, s.t. no $x^L \geq$ any $x^R$
 
 		Options are \emph{previously defined} number-games
 
@@ -342,19 +223,13 @@ Axiom 1N: what is a (surreal) number?
 
 ----------------------------------------------------------------------
 
-Integers
+Numbers
 
 	We create the natural numbers as $n+1 = (n|)$
 
-	Negative integers are then defined by the negation rule:
+		Negative integers are then defined by negation rule
 
-		$-n-1 = (|-n)$
-
-----------------------------------------------------------------------
-
-Binary fractions
-
-	We can create any finite binary expansion
+	We can create any finite \emph{binary} expansion
 
 		$(2k+1)/2^{n+1} = (k/2^n~|~(k+1)/2^n)$
 
@@ -389,43 +264,11 @@ DEFHEAD 0.999\ldots
 
 ----------------------------------------------------------------------
 
-Ordinals
+Multiplication
 
-	You can take as many limits as you want, and get all of the infinite
-	ordinals, and a wide range of infinitesimals
+	Intuition: no real game intuition
 
-----------------------------------------------------------------------
-
-Axiom 1R: what is a (real) number?
-
-	Recall: a number is: a set of options for the Left player, and a set of
-	options for the Right player
-
-		$x = (x^L~|~x^R)$, s.t.:
-		
-			no $x^L \geq x^R$
-
-		Options are \emph{previously defined} numbers
-
-	A real number is: a set of options for the Left player, and a set of
-	options for the Right player
-
-		$x = (x^L~|~x^R)$, s.t.:
-		
-			no $x^L \geq x^R$
-
-			$x^L$ has a largest element iff 
-			$x^R$ has a smallest element
-
-		Options are \emph{previously defined} real numbers
-
-----------------------------------------------------------------------
-
-Axiom 4 (not shown)
-
-	You can define multiplication
-
-		Motivation: $(x-x^S)(y-y^S)$ has a known sign
+	Motivation: $(x-x^S)(y-y^S)$ has a known sign
 
 	\ldots and construct division
 
@@ -433,6 +276,19 @@ Axiom 4 (not shown)
 		main quotient 
 
 	The surreal numbers are a \emph{field}
+
+----------------------------------------------------------------------
+
+A wild and woolly set of infinities
+
+	You can take as many limits as you want
+	
+	A collection of infinite numbers (the ordinals, plus you can add divide,
+	multiply and root them)
+	
+	A similar collection of infinitely small numbers (infinitesimals)
+
+		The real numbers are just a subfield
 
 ----------------------------------------------------------------------
 
@@ -467,7 +323,7 @@ Temperature
 		Red-blue hackenbush
 
 	Neutral games are games where the positions are the same for left
-	and right
+	and Right
 
 		The theory of Nim values
 
@@ -536,20 +392,3 @@ More simplicity
 		$x^L + 1$, if only $x^L$ exists
 
 		\ldots
-
-----------------------------------------------------------------------
-
-Finitude
-
-	Any game takes a \emph{finite} number of
-	moves to play
-
-		Induction: if I have a new game, and play it, it will take one
-		more move than the option I chose
-
-	This number is not necessarily \emph{bounded}. 
-	
-	In particular, a number-game that does not correspond to a
-	finite binary expansion has an unbounded number of possible moves 
-	
-		(depending on what games it is added to)
