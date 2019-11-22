@@ -191,7 +191,9 @@ TSEC Values
 
 	Which is the same as saying if they're equal under the partial ordering above
 
-	Thus, a game value as an \emph{equivalence class} of games
+	Thus, a game value is an \emph{equivalence class} of games
+
+		Like you learned about with the rationals
 
 ----------------------------------------------------------------------
 
