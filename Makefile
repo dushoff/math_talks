@@ -1,4 +1,5 @@
 # math_talks, a screens project directory
+# https://github.com/dushoff/math_talks.git
 
 current: target
 -include target.mk
