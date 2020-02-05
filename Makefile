@@ -31,6 +31,7 @@ Sources += $(wildcard *.txt *.step)
 ## Created this directory to make the first slide version of surreal lecture
 ## 2017
 ## Not sure what I did in 2018; violent changes for 2019
+## In the end, mostly on the board; more domineering.
 surreal.draft.pdf: surreal.txt
 surreal.final.pdf: surreal.txt
 surreal.handouts.pdf: surreal.txt
